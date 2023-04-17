@@ -1,0 +1,21 @@
+curl --location --request PUT 'https://api.kvstore.io/storage' \
+--header 'kvstoreio_api_key: 27beedfbdb7512d180deb3d7a18a49c5f28a786baf0474e5d558b365892f72ec' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "referer": "http://localhost:5173/"
+}'
+
+###
+
+curl --location --request PUT 'https://api.kvstore.io/collections/orders' \
+--header 'kvstoreio_api_key: 27beedfbdb7512d180deb3d7a18a49c5f28a786baf0474e5d558b365892f72ec' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "public_write" : true
+}'
+
+###
+
+curl --location --request GET 'https://api.kvstore.io/collections' \
+--header 'kvstoreio_api_key: 27beedfbdb7512d180deb3d7a18a49c5f28a786baf0474e5d558b365892f72ec' \
+--header 'Content-Type: application/json' \

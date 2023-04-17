@@ -27,6 +27,57 @@ const toppings = [
     group: 'meat',
   },
 
+  {
+    name: '"mozzarella cheese"',
+    group: 'cheese',
+  },
+  {
+    name: 'classic cheese',
+    group: 'cheese',
+  },
+  {
+    name: 'American',
+    group: 'cheese',
+  },
+  {
+    name: 'Asiago',
+    group: 'cheese',
+  },
+
+  {
+    name: 'onions',
+    group: 'vegetables',
+  },
+  {
+    name: 'olives',
+    group: 'vegetables',
+  },
+  {
+    name: 'spinach',
+    group: 'vegetables',
+  },
+  {
+    name: 'tomatoes',
+    group: 'vegetables',
+  },
+
+  {
+    name: 'Classic Sausage',
+    group: 'sauces',
+  },
+  {
+    name: 'Spicy Sausage',
+    group: 'sauces',
+  },
+  {
+    name: 'Apple',
+    group: 'sauces',
+  },
+  {
+    name: 'Sweet Italian',
+    group: 'sauces',
+  },
+
   // `"mozzarella cheese"`,
   // `mushrooms`,
   // `olives`,
@@ -66,14 +117,16 @@ export const Toppings = () => {
     <div className="2xl:pt-10 border-gray-200 dark:border-gray-700">
       <Tabs selected={curCategory} onSelect={setCurCategory} />
       <Slider {...sliderSettings} slidesToShow={isMobile ? 2 : 3} className="flex mt-8 gap-6">
-        {toppings.map((card) => (
-          <Card
-            key={card.name}
-            title={card.name}
-            selected={selectedToppings.includes(card.name)}
-            onSelect={toggleTopping}
-          />
-        ))}
+        {toppings
+          .filter((c) => curCategory === 'all' || c.group === curCategory)
+          .map((card) => (
+            <Card
+              key={card.name}
+              title={card.name}
+              selected={selectedToppings.includes(card.name)}
+              onSelect={toggleTopping}
+            />
+          ))}
       </Slider>
     </div>
   );

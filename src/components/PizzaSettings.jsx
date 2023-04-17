@@ -3,7 +3,7 @@ import { SettingOption } from './SettingOption';
 import { Toppings } from './toppings';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
-const SIZES = [
+export const SIZES = [
   {
     name: 'Standard size',
     value: 'standard',
@@ -22,7 +22,7 @@ const SIZES = [
   },
 ];
 
-const DOUGHS = [
+export const DOUGHS = [
   {
     name: 'Thick crust',
     value: 'thick',
@@ -33,7 +33,7 @@ const DOUGHS = [
   },
 ];
 
-const CRUST = [
+export const CRUST = [
   {
     name: 'Philadelphia',
     value: 'philadelphia',
@@ -46,7 +46,7 @@ const CRUST = [
 
 export const PizzaSettings = () => {
   const [settings, setSettings] = useLocalStorage('settings', {
-    size: SIZES[0].value,
+    size: null,
     dough: null,
     crust: null,
   });

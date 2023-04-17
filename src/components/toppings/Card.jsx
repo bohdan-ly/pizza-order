@@ -11,7 +11,7 @@ export const Card = ({ title, image, selected = false, onSelect = () => {} }) =>
       >
         <img
           className="p-8 rounded-t-lg w-3/4"
-          src="https://dominos.ua/_next/image?url=https%3A%2F%2Fmedia-v3.dominos.ua%2FProducts%2Fpepp-302x302.webp&w=320&q=75"
+          src=""
           alt="product image"
         />
         <div className="px-5 pb-5">

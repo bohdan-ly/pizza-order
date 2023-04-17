@@ -9,6 +9,7 @@ export function useLocalStorage(key, initialState) {
     const onClear = (e) => {
       localStorage.clear();
       setValue(formattedInitValue);
+      window.updateSum();
     };
 
     window.addEventListener('storage', onClear);
@@ -28,6 +29,7 @@ export function useLocalStorage(key, initialState) {
         localStorage.setItem(key, localValue);
       }
       setValue(localValue ?? formattedInitValue);
+      window.updateSum();
     },
     [initialState, key],
   );
