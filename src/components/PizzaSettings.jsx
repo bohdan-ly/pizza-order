@@ -1,45 +1,45 @@
 import React from 'react';
-import { SettingOption } from './SettingOption';
+import { SettingOption } from './settings/SettingOption';
 import { Toppings } from './toppings';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 export const SIZES = [
   {
-    name: 'Standard size',
+    label: 'Standard size',
     value: 'standard',
   },
   {
-    name: 'Large',
+    label: 'Large',
     value: 'large',
   },
   {
-    name: 'ExtraLarge',
+    label: 'ExtraLarge',
     value: 'extra-large',
   },
   {
-    name: 'XXLarge',
+    label: 'XXLarge',
     value: 'xxl',
   },
 ];
 
 export const DOUGHS = [
   {
-    name: 'Thick crust',
+    label: 'Thick crust',
     value: 'thick',
   },
   {
-    name: 'Thin',
+    label: 'Thin',
     value: 'thin',
   },
 ];
 
 export const CRUST = [
   {
-    name: 'Philadelphia',
+    label: 'Philadelphia',
     value: 'philadelphia',
   },
   {
-    name: 'Hot-Dog Crust',
+    label: 'Hot-Dog Crust',
     value: 'hot-dog',
   },
 ];

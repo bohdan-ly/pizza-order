@@ -2,12 +2,44 @@ import React from 'react';
 import { SIZES } from './PizzaSettings';
 
 export const OrderFooter = () => {
-  const [orderSum, setOrderSum] = React.useState(0);
+  const [order, setOrder] = React.useState({
+    order_details: {},
+    user_details: {},
+  });
+
+  React.useEffect(() => {
+    window.updateSum = () => {
+      const toppings = JSON.parse(localStorage.getItem('toppings'));
+      const settings = JSON.parse(localStorage.getItem('settings'));
+      const userData = JSON.parse(localStorage.getItem('userData'));
+
+      setOrder({
+        order_details: {
+          toppings,
+          ...settings,
+        },
+        user_details: {
+          ...userData,
+        },
+      });
+    };
+  }, []);
+
+  const makeOrder = async () => {
+    fetch(`http://${window.location.hostname}:8080/orders`, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(order),
+    });
+  };
 
   const calcSum = () => {
     let sum = 0;
-    const toppings = JSON.parse(localStorage.getItem('toppings'));
-    const settings = JSON.parse(localStorage.getItem('settings'));
+    const toppings = order.order_details.toppings;
+    const settings = order.order_details;
 
     if (toppings) {
       toppings.forEach((t) => (sum += 2));
@@ -41,42 +73,13 @@ export const OrderFooter = () => {
     return sum;
   };
 
-  React.useEffect(() => {
-    window.updateSum = () => {
-      setOrderSum(calcSum());
-    };
-  }, []);
-
-  const makeOrder = async () => {
-    const toppings = JSON.parse(localStorage.getItem('toppings'));
-    const settings = JSON.parse(localStorage.getItem('settings'));
-    const userData = JSON.parse(localStorage.getItem('settings'));
-
-    fetch('https://api.kvstore.io/collections/orders/items/order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        kvstoreio_api_key: '27beedfbdb7512d180deb3d7a18a49c5f28a786baf0474e5d558b365892f72ec',
-      },
-      body: {
-        order_details: {
-          toppings,
-          ...settings,
-        },
-        user_details: {
-          ...userData,
-        },
-      },
-    });
-  };
-
   return (
     <div className="flex flex-col md:flex-row gap-4 mt-20 w-full">
-      <h5 className="text-4xl mr-auto">Total: {orderSum}$</h5>
+      <h5 className="text-4xl mr-auto">Total: {calcSum()}$</h5>
       <div className="flex space-x-10">
         <button
           type="submit"
-          className="w-full max-w-[300px] text-white bg-transparent border-white hover:bg-red-800 hover:border-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm md:text-2xl px-5 py-2.5 text-center"
+          className="w-full max-w-[300px] text-black bg-transparent border-black hover:bg-red-800 hover:border-red-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm md:text-2xl px-5 py-2.5 text-center"
           onClick={() => {
             const event = new StorageEvent('storage', {});
             window.dispatchEvent(event);
@@ -86,7 +89,7 @@ export const OrderFooter = () => {
         </button>
         <button
           type="submit"
-          className="w-full max-w-[300px] text-sm md:text-2xl text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+          className="w-full whitespace-nowrap max-w-[300px] text-sm md:text-2xl text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
           onClick={() => {
             const event = new StorageEvent('storage', {});
             window.dispatchEvent(event);

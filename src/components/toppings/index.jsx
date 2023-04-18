@@ -9,73 +9,90 @@ const toppings = [
   {
     name: 'anchovies',
     group: 'meat',
+    imagePath: './src/assets/meet.png',
   },
   {
     name: 'bacon',
     group: 'meat',
+    imagePath: './src/assets/meet.png',
   },
   {
     name: 'chicken',
     group: 'meat',
+    imagePath: './src/assets/meet.png',
   },
   {
     name: '"ground beef"',
     group: 'meat',
+    imagePath: './src/assets/meet.png',
   },
   {
     name: 'ham',
     group: 'meat',
+    imagePath: './src/assets/meet.png',
   },
 
   {
     name: '"mozzarella cheese"',
     group: 'cheese',
+    imagePath: './src/assets/cheese.png',
   },
   {
     name: 'classic cheese',
     group: 'cheese',
+    imagePath: './src/assets/cheese.png',
   },
   {
     name: 'American',
     group: 'cheese',
+    imagePath: './src/assets/cheese.png',
   },
   {
     name: 'Asiago',
     group: 'cheese',
+    imagePath: './src/assets/cheese.png',
   },
 
   {
     name: 'onions',
     group: 'vegetables',
+    imagePath: './src/assets/vegetables.png',
   },
   {
     name: 'olives',
     group: 'vegetables',
+    imagePath: './src/assets/vegetables.png',
   },
   {
     name: 'spinach',
     group: 'vegetables',
+    imagePath: './src/assets/vegetables.png',
   },
   {
     name: 'tomatoes',
     group: 'vegetables',
+    imagePath: './src/assets/vegetables.png',
   },
 
   {
     name: 'Classic Sausage',
     group: 'sauces',
+    imagePath: './src/assets/sauce.png',
   },
   {
     name: 'Spicy Sausage',
     group: 'sauces',
+    imagePath: './src/assets/sauce.png',
   },
   {
     name: 'Apple',
     group: 'sauces',
+    imagePath: './src/assets/sauce.png',
   },
   {
     name: 'Sweet Italian',
     group: 'sauces',
+    imagePath: './src/assets/sauce.png',
   },
 
   // `"mozzarella cheese"`,
@@ -123,6 +140,7 @@ export const Toppings = () => {
             <Card
               key={card.name}
               title={card.name}
+              imagePath={card.imagePath}
               selected={selectedToppings.includes(card.name)}
               onSelect={toggleTopping}
             />

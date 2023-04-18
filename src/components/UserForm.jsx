@@ -19,7 +19,7 @@ export const UserForm = () => {
 
   return (
     <div className="flex justify-start">
-      <form className="p-8 border rounded-lg px-6 2xl:p-16 space-y-10 2xl:space-y-20">
+      <form className="p-8 border border-slate-600 rounded-lg px-6 2xl:p-16 space-y-10 2xl:space-y-20">
         <div className="grid md:grid-cols-2 gap-8 md:gap-6 2xl:gap-20">
           <Input
             name="Name"

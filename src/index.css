@@ -8,8 +8,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #213547;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,12 +26,12 @@
 
 a {
   font-weight: 500;
-  color: #efefef;
+  color: #213547;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #d8daff;
+  color: #17171c;
 }
 
 body {
@@ -72,11 +72,16 @@ button:focus-visible {
 }
 
 .slick-dots li button:before {
-  color: white;
+  color: #213547;
 }
 
 .slick-dots li.slick-active button:before {
-  color: white;
+  color: #213547;
+}
+
+.slick-arrow::before {
+  font-size: 2.5rem;
+  color: black;
 }
 
 @media (prefers-color-scheme: light) {
@@ -91,5 +96,12 @@ button:focus-visible {
 
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 768px) {
+  .slick-arrow::before {
+    font-size: 1rem;
+    color: black;
   }
 }
