@@ -1,0 +1,59 @@
+# Pizza Order Form
+
+This is a web application for ordering pizza online. It's built using React and TailwindCSS on the client side, and Express, Pug, and Mongoose on the server side.
+
+## Features
+
+- Responsive user interface for ordering pizza with various toppings, sizes, and quantities.
+- Server-side validation for form inputs to ensure accurate pizza orders.
+- Email notifications using a third-party service after successful purchase.
+
+## Technologies Used
+
+- Frontend: React, TailwindCSS
+- Backend: Express, Pug, Mongoose
+- Database: MongoDB
+
+## Prerequisites
+
+- Node.js and npm installed on your local machine.
+- MongoDB database configured and running.
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/your-username/pizza-order-form.git`
+2. Change to the project directory: `cd pizza-order-form`
+3. Install dependencies: `npm install` or `yarn`
+4. Configure environment variables: Create a `.env` file in the project root and set the following variables:
+    - `DATABASE`: MongoDB connection string
+    - `DB_PASSWORD`: MongoDB password string
+    - `GMAIL_LOGIN`: Email address for sending notifications
+    - `GMAIL_PASSWORD`: Email password for sending notifications
+5. Start the development server: `npm run dev` or `yarn dev`
+6. Open your web browser and navigate to `http://localhost:3000` to access the pizza order form.
+
+## Caution
+
+Please note emails with order details can be sent to SPAM
+
+## Usage
+
+1. Select pizza options (toppings, size, quantity) in the form.
+2. Fill in the customer details (name, email, address).
+3. Click the "Complete Order" button to submit the form.
+4. If the form is valid and the order is successful, an email notification will be sent to the provided email address.
+5. View the order details in the database and check the email inbox for the notification.
+
+## Contributing
+
+If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature/bugfix: `git checkout -b my-feature-branch`
+3. Commit your changes: `git commit -m "Add new feature"`.
+4. Push to the branch: `git push origin my-feature-branch`.
+5. Submit a pull request with your changes.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
