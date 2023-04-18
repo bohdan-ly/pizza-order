@@ -21,8 +21,8 @@ This is a web application for ordering pizza online. It's built using React and 
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/pizza-order-form.git`
-2. Change to the project directory: `cd pizza-order-form`
+1. Clone the repository: `git clone https://github.com/your-username/pizza-order.git`
+2. Change to the project directory: `cd pizza-order`
 3. Install dependencies: `npm install` or `yarn`
 4. Configure environment variables: Create a `.env` file in the project root and set the following variables:
     - `DATABASE`: MongoDB connection string
